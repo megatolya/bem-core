@@ -181,17 +181,17 @@ function BEMContext(context, apply_) {
 
 BEMContext.prototype.isArray = isArray;
 
-BEMContext.prototype.isSimple = function isSimple(obj) {
+BEMContext.prototype.isSimple = function(obj) {
     if(!obj || obj === true) return true;
     var t = typeof obj;
     return t === 'string' || t === 'number';
 };
 
-BEMContext.prototype.isShortTag = function isShortTag(t) {
+BEMContext.prototype.isShortTag = function(t) {
     return SHORT_TAGS.hasOwnProperty(t);
 };
 
-BEMContext.prototype.extend = function extend(o1, o2) {
+BEMContext.prototype.extend = function(o1, o2) {
     if(!o1 || !o2) return o1 || o2;
     var res = {}, n;
     for(n in o1) res[n] = o1[n];
@@ -214,18 +214,18 @@ BEMContext.prototype.identify = (function() {
     };
 })();
 
-BEMContext.prototype.xmlEscape = function xmlEscape(str) {
+BEMContext.prototype.xmlEscape = function(str) {
     return (str + '').replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;');
 };
-BEMContext.prototype.attrEscape = function attrEscape(str) {
+BEMContext.prototype.attrEscape = function(str) {
     return (str + '').replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;');
 };
-BEMContext.prototype.jsAttrEscape = function attrEscape(str) {
+BEMContext.prototype.jsAttrEscape = function(str) {
     return (str + '').replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
@@ -234,15 +234,15 @@ BEMContext.prototype.jsAttrEscape = function attrEscape(str) {
 
 BEMContext.prototype.BEM = BEM_;
 
-BEMContext.prototype.isFirst = function isFirst() {
+BEMContext.prototype.isFirst = function() {
     return this.position === 1;
 };
 
-BEMContext.prototype.isLast = function isLast() {
+BEMContext.prototype.isLast = function() {
     return this.position === this._listLength;
 };
 
-BEMContext.prototype.generateId = function generateId() {
+BEMContext.prototype.generateId = function() {
     return this.identify(this.ctx);
 };
 
